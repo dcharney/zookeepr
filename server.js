@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const { animals } = require('./data/animals');
+const {animals} = require('./data/animals');
 
 function filterByQuery(query, animalsArray) {
     let personalityTraitsArray = [];
@@ -29,13 +29,13 @@ function filterByQuery(query, animalsArray) {
         });
     }
     if (query.diet) {
-      filteredResults = filteredResults.filter(animal => animal.diet === query.diet);
+        filteredResults = filteredResults.filter(animal => animal.diet === query.diet);
     }
     if (query.species) {
-      filteredResults = filteredResults.filter(animal => animal.species === query.species);
+        filteredResults = filteredResults.filter(animal => animal.species === query.species);
     }
     if (query.name) {
-      filteredResults = filteredResults.filter(animal => animal.name === query.name);
+        filteredResults = filteredResults.filter(animal => animal.name === query.name);
     }
     // return the filtered results:
     return filteredResults;
@@ -44,7 +44,7 @@ function filterByQuery(query, animalsArray) {
 app.get('/api/animals', (req, res) => {
     let results = animals;
     if (req.query) {
-      results = filterByQuery(req.query, results);
+        results = filterByQuery(req.query, results);
     }
     res.json(results);
 });
@@ -52,4 +52,3 @@ app.get('/api/animals', (req, res) => {
 app.listen(3001, () => {
     console.log(`API server now on port 3001!`);
 });
-
