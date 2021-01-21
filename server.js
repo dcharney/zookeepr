@@ -42,7 +42,7 @@ function filterByQuery(query, animalsArray) {
 };
 
 
-app.get('/data/animals', (req, res) => {
+app.get('/', (req, res) => {
     let results = animals;
     if (req.query) {
         results = filterByQuery(req.query, results);
