@@ -9,6 +9,7 @@ app.use(express.static('public'));
 const {animals} = require('./data/animals');
 const fs = require('fs');
 const path = require('path');
+const { response } = require('express');
 
 function filterByQuery(query, animalsArray) {
     let personalityTraitsArray = [];

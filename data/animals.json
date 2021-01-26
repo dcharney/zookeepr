@@ -117,6 +117,17 @@
         "hungry"
       ],
       "id": "11"
+    },
+    {
+      "name": "Alfa",
+      "species": "Elf",
+      "diet": "herbivore",
+      "personalityTraits": [
+        "zany",
+        "anxious",
+        "loving"
+      ],
+      "id": "12"
     }
   ]
 }
