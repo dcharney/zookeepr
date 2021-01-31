@@ -46,5 +46,36 @@ const handleAnimalFormSubmit = event => {
     });
 };
 
+const handleZookeeperFormSubmit = event => {
+  event.preventDefault();
+
+  // get zookeeper data and organize it
+  const name = $zookeeperForm.querySelector('[name="zookeeper-name"]').value;
+  const age = $zookeeperForm.querySelector('[name="age-input"]').value;
+  const favoriteAnimal = $zookeeperForm.querySelectorAll('[name="favorite-animal"]');
+
+  const zookeeperObject = { name, age, favoriteAnimal };
+  console.log(zookeeperObject);
+
+  fetch('/api/zookeepers', {
+    method: 'POST',
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(zookeeperObject)
+  })
+    .then(response => {
+      if (response.ok) {
+          return response.json();
+      }
+      alert('Error: ' + response.statusText);
+    })
+    .then(postResponse => {
+      alert('Thank you for adding a zookeeper!');
+    });
+};
+
 $animalForm.addEventListener('submit', handleAnimalFormSubmit);
+$zookeeperForm.addEventListener('submit', handleZookeeperFormSubmit);
 
